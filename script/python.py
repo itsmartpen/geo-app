@@ -2,6 +2,6 @@ import os
 
 print("hello idris")
 
-os.system("date")
+os.system("nproc")
 os.system("uname -r")
 
