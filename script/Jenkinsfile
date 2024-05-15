@@ -4,7 +4,7 @@ pipeline{
     maven 'M2_HOME'
    }
    stages{
-    stage("maven22"){
+    stage("maven12"){
         steps{ 
         sh 'mvn clean validate compile install test package'
         }
