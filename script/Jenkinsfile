@@ -4,14 +4,16 @@ pipeline{
     maven 'M2_HOME'
    }
    stages{
-    stage("maven112"){
+    stage("maven"){
         steps{ 
         sh 'mvn clean validate compile install test package'
         }
     }
     stage('upload artifact'){
         steps{
-            curl -uadmin:AP6Bdwx4zuzatzGgcxgbkd8vYRm -T target/bio*.jar "http://ec2-34-227-101-3.compute-1.amazonaws.com:8081/artifactory/geolocation/geo/bio_${BUILD_ID}.jar"
+            sh 'curl -uadmin:AP6Bdwx4zuzatzGgcxgbkd8vYRm -T  \
+            target/bio*.jar \
+            "http://ec2-34-227-101-3.compute-1.amazonaws.com:8081/artifactory/geolocation/geo/bio_${BUILD_ID}.jar"'
         }
     }
    }
