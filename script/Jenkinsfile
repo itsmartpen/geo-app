@@ -1,13 +1,13 @@
 pipeline{
    agent any 
    tools{
-    maven 'M2_HOME'
+    maven 'M2_HOME1'
    }
    stages{
     stage('sonar-scan'){
         steps{
             withSonarQubeEnv('sonarQube'){
-sh  'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=itsmartpen_geo-app'
+        sh  'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=itsmartpen_geo-app'
             }
           
         
