@@ -39,6 +39,7 @@ pipeline{
     stage('docker_image_build'){
         steps{
             sh 'docker build -t utc-app-dev:v.${BUILD_ID} .'
+            sh 'docker build -t utc-app-dev:latest .'
         }
     }
     stage('image tagging'){
