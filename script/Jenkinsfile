@@ -42,7 +42,7 @@ pipeline{
             sh 'docker build -t utc-app-dev:latest .'
         }
     }
-    stage('image tagging'){
+    stage('image_tagging'){
         steps{
             sh 'docker tag utc-app-dev:v.${BUILD_ID} \
             140102337343.dkr.ecr.us-east-1.amazonaws.com/utc-app-dev:v.${BUILD_ID}'
@@ -50,7 +50,7 @@ pipeline{
             140102337343.dkr.ecr.us-east-1.amazonaws.com/utc-app-dev:latest'
         }
     }
-    stage('push image to ECR'){
+    stage('push_image to ECR'){
         steps{
             sh 'docker push 140102337343.dkr.ecr.us-east-1.amazonaws.com/utc-app-dev:latest'
             sh 'docker push 140102337343.dkr.ecr.us-east-1.amazonaws.com/utc-app-dev:v.${BUILD_ID}'
